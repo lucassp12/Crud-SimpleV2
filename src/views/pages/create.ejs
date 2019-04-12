@@ -1,0 +1,13 @@
+<%- contentFor('body') %>
+<div class="Product">
+  <form action="/store" method="post">
+    <label>Nome Produto:</label>
+    <input type="name" name="name" />
+    <select name="category_id">
+      <% for (category of categories){%>
+      <option value="<%= category.id %>"><%= category.name %></option>
+      <% } %>
+    </select>
+    <input type="submit" />
+  </form>
+</div>

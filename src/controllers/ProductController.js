@@ -1,8 +1,11 @@
 const Product = require("../models/Product");
+const Category = require("../models/Category");
 
 class ProductController {
   async create(req, res) {
-    return res.render("pages/create");
+    const category = await Category.find();
+
+    return res.render("pages/create", { categories: category });
   }
 
   async store(req, res) {
@@ -14,7 +17,17 @@ class ProductController {
   async show(req, res) {
     const products = await Product.find();
 
-    return res.render("pages/list", { products: products });
+    const category = await Product.find({}).select({ category_id: 1, _id: 0 });
+
+    const id = category[0].category_id;
+
+    const categories = await Category.findById(id);
+
+    return res.render(
+      "pages/list",
+      { products: products },
+      { categories: categories }
+    );
   }
 
   async edit(req, res) {

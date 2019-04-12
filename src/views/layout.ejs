@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crud-Simplev2</title>
+    <link rel="icon" type="imagem/png" href="/imagens/favicon.ico" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/create">Criar Produto</a></li>
+          <li><a href="/category/create">Criar Categoria</a></li>
+          <li><a href="/list">Listar Produtos</a></li>
+          <li><a href="/category/list">Listar Categorias</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <%- body %>
+      </div>
+    </main>
+  </body>
+</html>

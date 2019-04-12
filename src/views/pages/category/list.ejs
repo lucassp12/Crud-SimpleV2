@@ -1,0 +1,33 @@
+<%- contentFor('body') %>
+<div class="text-center">
+  <h1>Lista de Produtos:</h1>
+  <div class="table">
+    <table>
+      <tr>
+        <th>Categoria:</th>
+        <th></th>
+      </tr>
+      <% for (category of categories){%>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <button type="submit">
+            <a href="/category/edit/<%= category.id %>">Editar</a>
+          </button>
+          <button id="destroy" type="submit">
+            <a onclick="destroy()">Excluir</a>
+          </button>
+        </td>
+      </tr>
+      <tr></tr>
+      <% } %>
+    </table>
+  </div>
+</div>
+<script>
+  function destroy() {
+    if (confirm("Deseja Excluir?")) {
+      location.href = "/category/destroy/<%= category.id %>";
+    }
+  }
+</script>

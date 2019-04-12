@@ -1,0 +1,30 @@
+<%- contentFor('body') %>
+<div class="text-center">
+  <h1>Lista de Produtos:</h1>
+  <div class="table">
+    <table>
+      <tr>
+        <th>Produtos:</th>
+        <th>Categoria:</th>
+        <th></th>
+      </tr>
+      <% for (product of products){%>
+      <tr>
+        <td><%= product.name %></td>
+        <% for (category of categories){%>
+        <td><%= category.name %></td>
+        <% } %>
+        <td>
+          <button type="submit">
+            <a href="">Editar</a>
+          </button>
+          <button id="destroy" type="submit">
+            <a onclick="destroy()">Excluir</a>
+          </button>
+        </td>
+      </tr>
+      <tr></tr>
+      <% } %>
+    </table>
+  </div>
+</div>
