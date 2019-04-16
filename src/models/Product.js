@@ -1,14 +1,16 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
-  category_id: {
+  category: {
     type: String,
     required: true
   },
+
   createdAt: {
     type: Date,
     default: Date.now

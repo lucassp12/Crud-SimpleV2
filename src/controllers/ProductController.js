@@ -17,23 +17,17 @@ class ProductController {
   async show(req, res) {
     const products = await Product.find();
 
-    const category = await Product.find({}).select({ category_id: 1, _id: 0 });
+    console.log(products);
 
-    const id = category[0].category_id;
-
-    const categories = await Category.findById(id);
-
-    return res.render(
-      "pages/list",
-      { products: products },
-      { categories: categories }
-    );
+    return res.render("pages/list", { products: products });
   }
 
   async edit(req, res) {
+    const categories = await Category.find();
+
     const product = await Product.findById(req.params.id, req.body);
 
-    return res.render("pages/edit", { product });
+    return res.render("pages/edit", { product, categories: categories });
   }
 
   async update(req, res) {

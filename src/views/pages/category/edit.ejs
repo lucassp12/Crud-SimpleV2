@@ -1,8 +1,10 @@
-<div class="category">
+<div class="Product">
+    <div class="create">
     <form action="/category/update/<%= category.id %>" method="post">
       <label>Category:</label>
-      <input type="name" name="name" placeholder="<%= category.name %>" />
-      <input type="submit">
+      <input type="name" name="name" placeholder="<%= category.name %>" required/>
+      <button type="submit">Cadastrar</button>
     </form>
   </div>
+</div>
 </div>

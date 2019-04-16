@@ -11,12 +11,10 @@
       <% for (product of products){%>
       <tr>
         <td><%= product.name %></td>
-        <% for (category of categories){%>
-        <td><%= category.name %></td>
-        <% } %>
+        <td><%= product.category %></td>
         <td>
           <button type="submit">
-            <a href="">Editar</a>
+            <a href="/edit/<%= product.id %>">Editar</a>
           </button>
           <button id="destroy" type="submit">
             <a onclick="destroy()">Excluir</a>
@@ -28,3 +26,10 @@
     </table>
   </div>
 </div>
+<script>
+  function destroy() {
+    if (confirm("Deseja Excluir?")) {
+      location.href = "/destroy/<%= product.id %>";
+    }
+  }
+</script>

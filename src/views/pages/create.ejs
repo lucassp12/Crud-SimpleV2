@@ -1,13 +1,15 @@
 <%- contentFor('body') %>
 <div class="Product">
-  <form action="/store" method="post">
-    <label>Nome Produto:</label>
-    <input type="name" name="name" />
-    <select name="category_id">
-      <% for (category of categories){%>
-      <option value="<%= category.id %>"><%= category.name %></option>
-      <% } %>
-    </select>
-    <input type="submit" />
-  </form>
+  <div class="create">
+    <form action="/store" method="post">
+      <label>Nome Produto:</label>
+      <input type="name" name="name" required />
+      <select name="category">
+        <% for (category of categories){%>
+        <option value="<%= category.name %>"><%= category.name %></option>
+        <% } %>
+      </select>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
 </div>
