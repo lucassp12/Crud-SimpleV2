@@ -1,14 +1,9 @@
 <%- contentFor('body') %>
-<div class="Product">
-  <div class="create">
+<div class="container">
+  <div class="form">
     <form action="/update/<%= product.id %>" method="post">
       <label>Nome Produto:</label>
-      <input
-        type="name"
-        name="name"
-        placeholder="<%= product.name %>"
-        required
-      />
+      <input id="name" type="name" name="name" required />
       <select id="category" name="category">
         <% for (category of categories){%>
         <option value="<%= category.name %>"><%= category.name %></option>
@@ -23,5 +18,9 @@
     var value = (document.getElementById("category").value =
       "<%= product.category %>");
   }
+  function name() {
+    var name = (document.getElementById("name").value = "<%= product.name %>");
+  }
   value();
+  name();
 </script>
